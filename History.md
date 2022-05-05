@@ -7,6 +7,23 @@ npx create-next-app@latest --typescript
 # create directory
 mkdir components
 mkdir public/images
+touch pages/_document.tsx
+```
+
+```tsx
+import { Html, Head, Main, NextScript } from 'next/document'
+
+export default function Document() {
+  return (
+    <Html lang="zh-TW" data-theme="cupcake">
+      <Head />
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
+}
 ```
 
 # tailwindcss
@@ -41,17 +58,17 @@ yarn add daisyui
 // tailwind.config.js
 module.exports = {
   //...
-  plugins: [require("daisyui")],
-};
+  plugins: [require('daisyui')],
+}
 ```
 
 ## imports
 
 ```ts
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
-import Script from "next/script";
+import Head from 'next/head'
+import Link from 'next/link'
+import Image from 'next/image'
+import Script from 'next/script'
 import { useRouter } from 'next/router'
 ```
 

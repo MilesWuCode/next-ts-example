@@ -5,4 +5,7 @@
 ```sh
 # dev
 yarn dev
+
+# json-server
+yarn json-server
 ```
