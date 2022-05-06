@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       post: data,
     },
-    revalidate: 3600
+    revalidate: 10
   }
 }
 
@@ -91,6 +91,7 @@ export default function PostId({ post }: { post: Post }) {
         <p>{post.id}</p>
         <p>{post.title}</p>
         <p>{post.content}</p>
+        <p>{post.category}</p>
       </div>
 
       <Link href="/ssg">
