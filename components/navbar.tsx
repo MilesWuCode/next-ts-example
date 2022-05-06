@@ -14,7 +14,7 @@ export default function Navbar() {
           <label tabIndex={tabIndex} className="btn btn-ghost btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -29,7 +29,7 @@ export default function Navbar() {
           </label>
           <ul
             tabIndex={tabIndex}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
           >
             <li>
               <Link href="/">
@@ -42,7 +42,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link href="/ssg">
                 <a onClick={closeMenu}>SSG</a>
               </Link>
             </li>
@@ -60,13 +60,13 @@ export default function Navbar() {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className="text-xl normal-case btn btn-ghost">daisyUI</a>
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
+            className="w-5 h-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -83,7 +83,7 @@ export default function Navbar() {
           <div className="indicator">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

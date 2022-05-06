@@ -11,6 +11,8 @@ touch pages/_document.tsx
 ```
 
 ```tsx
+// html layout
+// pages/_document.tsx
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
@@ -23,6 +25,20 @@ export default function Document() {
       </body>
     </Html>
   )
+}
+```
+
+```json
+// Path Aliases
+// tsconfig.json
+{
+  "compilerOptions": {
+    // ...
+    "paths": {
+      "~/*": ["./*"]
+    }
+  }
+  // ...
 }
 ```
 

@@ -1,12 +1,6 @@
 import type { GetServerSideProps } from 'next'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-
-interface Post {
-  id: number
-  title: string
-  content: string
-}
+import { Post } from '~/types'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { params } = context
@@ -31,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
-  const data = await response.json()
+  const data:Post = await response.json()
 
   return {
     props: {
@@ -40,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-export default function Post({ post }: { post: Post }) {
+export default function PostId({ post }: { post: Post }) {
   return (
     <>
       <h1 className="text-3xl font-bold underline">SSR</h1>
