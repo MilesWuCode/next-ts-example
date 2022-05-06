@@ -17,6 +17,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
+  if (!/^\d+$/.test(params.postId.toString())) {
+    return {
+      notFound: true,
+    }
+  }
+
   const response = await fetch(`http://localhost:4000/posts/${params.postId}`)
 
   if (response.status !== 200) {
@@ -39,7 +45,7 @@ export default function Post({ post }: { post: Post }) {
     <>
       <h1 className="text-3xl font-bold underline">SSR</h1>
 
-      <div className="text-lg my-5">
+      <div className="my-5 text-lg">
         <p>{post.id}</p>
         <p>{post.title}</p>
         <p>{post.content}</p>
