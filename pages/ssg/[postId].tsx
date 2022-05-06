@@ -1,5 +1,6 @@
 import type { GetStaticProps, GetStaticPaths } from 'next'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { Post } from '~/types'
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -17,8 +18,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
   }
 
-  console.log(params.postId)
-
   const response = await fetch(`http://localhost:4000/posts/${params.postId}`)
 
   if (response.status !== 200) {
@@ -27,7 +26,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
   }
 
-  const data:Post = await response.json()
+  const data: Post = await response.json()
 
   return {
     props: {
@@ -44,43 +43,44 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = data.map((post: { id: number }) => {
     return {
       params: {
-        postId: `${post.id}`
-      }
+        postId: `${post.id}`,
+      },
     }
   })
 
   // * 2
-  return {
-    paths,
-    fallback: false
-  }
-
-  // * 1
   // return {
-  //   paths: [
-  //     {
-  //       params: {
-  //         postId: '1',
-  //       },
-  //     },
-  //     {
-  //       params: {
-  //         postId: '2',
-  //       },
-  //     },
-  //   ],
-  //   fallback: false,
+  //   paths,
+  //   fallback: true
   // }
 
+  // * 1
+  return {
+    paths: [
+      {
+        params: {
+          postId: '1',
+        },
+      },
+      {
+        params: {
+          postId: '2',
+        },
+      },
+    ],
+    fallback: true,
+  }
+
   // * fallback
-  // fallback: false, trule, ''
+  // fallback: false, true, 'blocking'
 }
 
 export default function PostId({ post }: { post: Post }) {
+  const router = useRouter()
 
-  // if(!post) {
-  //   return ''
-  // }
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
 
   return (
     <>
