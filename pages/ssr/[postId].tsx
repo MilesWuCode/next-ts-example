@@ -25,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
-  const data:Post = await response.json()
+  const data: Post = await response.json()
 
   return {
     props: {
@@ -43,7 +43,11 @@ export default function PostId({ post }: { post: Post }) {
         <p>{post.id}</p>
         <p>{post.title}</p>
         <p>{post.content}</p>
-        <p>{post.category}</p>
+        <p>
+          <Link href={`/ssr-category?category=${post.category}`}>
+            <a>{post.category}</a>
+          </Link>
+        </p>
       </div>
 
       <Link href="/ssr">

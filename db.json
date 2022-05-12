@@ -1,4 +1,8 @@
 {
+  "dashboard": {
+    "like": 90,
+    "dislike": 10
+  },
   "posts": [
     {
       "id": 1,

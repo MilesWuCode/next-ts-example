@@ -8,3 +8,8 @@ export interface Post {
 export interface Posts {
   posts: Post[]
 }
+
+export interface Dashboard {
+  like: number
+  dislike: number
+}

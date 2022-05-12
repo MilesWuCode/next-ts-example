@@ -56,6 +56,16 @@ export default function Navbar() {
                 <a onClick={closeMenu}>CSR</a>
               </Link>
             </li>
+            <li>
+              <Link href="/swr">
+                <a onClick={closeMenu}>SWR</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/post">
+                <a onClick={closeMenu}>Post</a>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
