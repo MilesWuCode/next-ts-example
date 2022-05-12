@@ -52,7 +52,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link href="/csr">
                 <a onClick={closeMenu}>CSR</a>
               </Link>
             </li>
